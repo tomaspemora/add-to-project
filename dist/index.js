@@ -1434,7 +1434,7 @@ class BasicCredentialHandler {
         if (!options.headers) {
             throw Error('The request has no headers');
         }
-        options.headers['Authorization'] = `Basic ${Buffer.from(`${this.username}:${this.password}`).toString('base64')}`;
+        options.headers['Authorization'] = `token ${Buffer.from(`${this.username}:${this.password}`).toString('base64')}`;
     }
     // This handler cannot handle 401
     canHandleAuthentication() {
@@ -1480,7 +1480,7 @@ class PersonalAccessTokenCredentialHandler {
         if (!options.headers) {
             throw Error('The request has no headers');
         }
-        options.headers['Authorization'] = `Basic ${Buffer.from(`PAT:${this.token}`).toString('base64')}`;
+        options.headers['Authorization'] = `token ${Buffer.from(`PAT:${this.token}`).toString('base64')}`;
     }
     // This handler cannot handle 401
     canHandleAuthentication() {
